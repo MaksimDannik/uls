@@ -1,17 +1,15 @@
 #include "uls.h"
 
 int main(int argc, char *argv[]) {
-    t_head head; 
+    t_head head;
 
     mx_memset(&head, 0, sizeof(t_head));
         if(argc == 1) {
             // вывести стандартный ls
             //strerror(errno);//
         }
-
-        for (int i = 1; i < argc; i++) {
-            mx_check_mode(argv[i]);
-        }
+            mx_check_mode(argv, argc);
+        //system("leaks uls");
     
 
 

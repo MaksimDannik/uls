@@ -62,7 +62,7 @@ typedef struct s_head {
 
 } t_head;
 
-void mx_check_mode(char *file); // file or dir
+void mx_check_mode(char **file, int argc); // file or dir
 int mx_check_flag(char *file); //check flag valid or no whith error
 
 //mx_open_dir.c
