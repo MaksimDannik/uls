@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
             // вывести стандартный ls
             //strerror(errno);//
         }
-            mx_check_mode(argv, argc);
+            mx_check_mode(argv, argc, &head);
         //system("leaks uls");
     
 
