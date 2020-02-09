@@ -1,6 +1,6 @@
 {
     "files.associations": {
         "uls.h": "c",
-        "__config": "c"
+        "__config": "c",
     }
 }
