@@ -19,15 +19,15 @@
 
 #define MY_FLAGS "LARarls" //our flags
 
-typedef struct stat t_st;
+//typedef struct stat t_st;
 
-typedef struct s_data {
+typedef struct s_li {
     char *name;
     char *fullpath;
     int whats; // 1 - wrong dir / 2 - dir / 3 - file /
     struct stat t_st;
-    struct s_data *next;
-} t_data;
+    struct s_li *next;
+} t_li;
  
 
  typedef struct s_head {
@@ -39,7 +39,9 @@ typedef struct s_data {
 
 
 int mx_check_flags(int argc, char *argv[], t_head *head);
-t_data *mx_create_struct(char *name);
+t_li *mx_create_li(char *name);
+t_li *mx_determine_argv(int argc, char *argv[], t_head *head);
+
 
 
 
