@@ -1,10 +1,9 @@
 #include "uls.h"
 
 int main(int argc, char *argv[]) {
- 
     t_head head;
     t_li *list = NULL;
-    t_li *tmp = NULL;
+
 
 
     mx_memset(&head, 0, sizeof(t_head)); // зануляем структуру head
@@ -12,21 +11,9 @@ int main(int argc, char *argv[]) {
     mx_memset(head.flags, 0, mx_strlen(MY_FLAGS) * sizeof(int)); // зануляем масив на наше количество флагов
     head.count_flags = head.count_flags + mx_check_flags(argc, argv, &head); //заполнили масив флагов(0001001), и подсчитали где заканчиваются флаги 
     list = mx_determine_argv(argc, argv, &head);
-    tmp = list;
 
-     if (!tmp) {
-     mx_printstr("NEMA\n");
-    }
-    while (tmp) {
-        mx_printstr(tmp->name);
-        mx_printint(tmp->whats);
-        mx_printstr("\n");
-        tmp = tmp->next;
-    }
- system("leaks uls");
-
+    mx_sort_asci(list); // нужно сделать сортировку 
+//system("leaks uls");
 return 0;
-
-
 }
 

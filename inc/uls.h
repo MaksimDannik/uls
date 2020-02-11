@@ -39,7 +39,7 @@ typedef struct s_li {
 
 
 int mx_check_flags(int argc, char *argv[], t_head *head);
-t_li *mx_create_li(char *name);
+t_li *mx_create_li(char *name, int i);
 t_li *mx_determine_argv(int argc, char *argv[], t_head *head);
 
 
