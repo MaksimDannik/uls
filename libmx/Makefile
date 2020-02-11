@@ -243,7 +243,7 @@ OBJO = ./obj/mx_binary_search.o \
 	./obj/mx_swap_char.o\
 	./obj/mx_strncmp.o\
 
-CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror 
+CFLGS = -std=c11 -Wall -Wextra -Wpedantic -Werror -g
 all: install uninstall
 
 install:

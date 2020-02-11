@@ -8,7 +8,7 @@ SRCS = $(addprefix src/, $(SRC))
 
 OBJ = $(SRC:%.c=%.o)
 
-CFLAGS = -std=c11 -Wall -Werror -Wextra -Wpedantic
+CFLAGS = -std=c11 -Wall -Werror -Wextra -Wpedantic -g
 
 all: install
 
