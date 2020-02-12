@@ -8,7 +8,7 @@ int main(int argc, char *argv[]) {
     mx_memset(head.flags, 0, mx_strlen(MY_FLAGS) * sizeof(int)); // зануляем масив на наше количество флагов
     head.count_flags = head.count_flags + mx_check_flags(argc, argv, &head); //заполнили масив флагов(0001001), и подсчитали где заканчиваются флаги 
 
-    mx_parse(argc, argv);
+    mx_parse(argc, argv, &head);
 
     
     

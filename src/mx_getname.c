@@ -17,7 +17,7 @@ static t_lit **createlist(char **name, int count) {
     t_lit **tmp = malloc(count * sizeof(t_lit *));
     int i = 0;
 
-    for (int i = 0; name[i]; i++)
+    for (i = 0; name[i]; i++)
         tmp[i] = createnode(name[i]);
     tmp[i] = NULL;
     return tmp;
@@ -33,16 +33,16 @@ static char **nam(int argc, char **argv, int i, int *count) {
         nam[0] = mx_strdup(".");
         nam[1] = NULL;
     }
-        else {
-            for (; argv[j]; j++) {
-            }
-            nam = malloc((j - i + 1) * sizeof(char *));
-            for (j = 0; argv[i]; i++, j++) {
-                nam[j] = mx_strdup(argv[i]);
-            }
-            nam[j] = NULL;
-            *count = j + 1;
+    else {
+        for (; argv[j]; j++) {
         }
+        nam = malloc((j - i + 1) * sizeof(char *));
+        for (j = 0; argv[i]; i++, j++) {
+            nam[j] = mx_strdup(argv[i]);
+        }
+        nam[j] = NULL;
+        *count = j + 1;
+    }
         return nam;
 }
 
