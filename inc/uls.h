@@ -1,6 +1,7 @@
 #ifndef PATH_H
 #define PATH_H
 
+#include <string.h>
 #include <errno.h>
 #include "libmx/inc/libmx.h"
 #include "sys/stat.h"
@@ -21,15 +22,14 @@
 
 //typedef struct stat t_st;
 
-typedef struct s_li {
+typedef struct s_lit {
     char *name;
     char *fullpath;
-    int whats; // 1 - wrong dir / 2 - dir / 3 - file /
+    char *error;// write mistake errno
     struct stat t_st;
-    struct s_li *next;
-} t_li;
+    struct s_lit **open;
+} t_lit;
  
-
  typedef struct s_head {
     int *flags;
     int count_flags;
@@ -37,14 +37,9 @@ typedef struct s_li {
  } t_head;
 
 
-
 int mx_check_flags(int argc, char *argv[], t_head *head);
-t_li *mx_create_li(char *name, int i);
-t_li *mx_determine_argv(int argc, char *argv[], t_head *head);
-
-
-
-
+t_lit **mx_getname(int argc, char **argv, int i);
+void mx_parse(int argc, char **argv);
 #endif
 
 
