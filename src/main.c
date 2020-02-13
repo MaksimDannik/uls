@@ -10,11 +10,10 @@ int main(int argc, char *argv[]) {
 
     mx_parse(argc, argv, &head);
 
-    
-    
+    // free(head.flags);
 
     
-//system("leaks uls");
+system("leaks uls");
 return 0;
 }
 

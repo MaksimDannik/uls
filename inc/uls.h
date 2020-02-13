@@ -40,6 +40,7 @@ typedef struct s_lit {
 int mx_check_flags(int argc, char *argv[], t_head *head);
 t_lit **mx_getname(int argc, char **argv, int i);
 void mx_parse(int argc, char **argv, t_head *head);
+void mx_sort_asci(t_lit ***arg);
 #endif
 
 

@@ -17,7 +17,7 @@ static t_lit **createlist(char **name, int count) {
     t_lit **tmp = malloc(count * sizeof(t_lit *));
     int i = 0;
 
-    for (i = 0; name[i]; i++)
+    for (i = 0; name[i - 1]; i++)
         tmp[i] = createnode(name[i]);
     tmp[i] = NULL;
     return tmp;
@@ -43,7 +43,7 @@ static char **nam(int argc, char **argv, int i, int *count) {
         nam[j] = NULL;
         *count = j + 1;
     }
-        return nam;
+    return nam;
 }
 
 t_lit **mx_getname(int argc, char **argv, int i) {
