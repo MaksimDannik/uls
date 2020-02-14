@@ -1,6 +1,6 @@
 #include "uls.h"
 
-static t_lit *createnode(char *name) {
+t_lit *mx_createnode(char *name) {
     t_lit *node = (t_lit *)malloc(1 * sizeof(t_lit));
 
     node->name = mx_strdup(name);
@@ -17,8 +17,8 @@ static t_lit **createlist(char **name, int count) {
     t_lit **tmp = malloc(count * sizeof(t_lit *));
     int i = 0;
 
-    for (i = 0; name[i - 1]; i++)
-        tmp[i] = createnode(name[i]);
+    for (i = 0; name[i]; i++)
+        tmp[i] = mx_createnode(name[i]);
     tmp[i] = NULL;
     return tmp;
 }

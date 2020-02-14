@@ -2,5 +2,7 @@
     "files.associations": {
         "uls.h": "c",
         "__config": "c",
+        "dirent.h": "c",
+        "limits.h": "c"
     }
 }

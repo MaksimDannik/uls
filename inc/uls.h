@@ -41,6 +41,8 @@ int mx_check_flags(int argc, char *argv[], t_head *head);
 t_lit **mx_getname(int argc, char **argv, int i);
 void mx_parse(int argc, char **argv, t_head *head);
 void mx_sort_asci(t_lit ***arg);
+t_lit **mx_make_new_list(t_lit **args, int valid_node);
+void mx_del_list(t_lit **args);
 #endif
 
 
