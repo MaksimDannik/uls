@@ -36,10 +36,13 @@ void mx_parse(int argc, char **argv, t_head *head) {
     mx_sort_asci(&args); // sort argument of ASCI
     print_err(args); // print error
     args = arg(args); // array without errors
-    
-    
+    mx_indification_args(args, head);// indification argc (exemple: file and dir)
 
 
+
+
+
+    
     // for (int i = 0; args[i] != NULL; i++) { // check **args // i need make sort after make this functions.
     //     // mx_printerr("ls: ");
     //     mx_printstr(args[i]->name);

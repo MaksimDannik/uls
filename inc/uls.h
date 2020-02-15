@@ -21,11 +21,13 @@
 #define MY_FLAGS "LARarls" //our flags
 
 //typedef struct stat t_st;
+struct stat *buf;
 
 typedef struct s_lit {
     char *name;
     char *fullpath;
     char *error;// write mistake errno
+    int what_is_it;
     struct stat t_st;
     struct s_lit **open;
 } t_lit;
@@ -43,6 +45,7 @@ void mx_parse(int argc, char **argv, t_head *head);
 void mx_sort_asci(t_lit ***arg);
 t_lit **mx_make_new_list(t_lit **args, int valid_node);
 void mx_del_list(t_lit **args);
+void mx_indification_args(t_lit **args, t_head *head);
 #endif
 
 
