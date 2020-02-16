@@ -35,6 +35,7 @@ typedef struct s_lit {
  typedef struct s_head {
     int *flags;
     int count_flags;
+    int sum_file; // for print!! have or not file//
 
  } t_head;
 

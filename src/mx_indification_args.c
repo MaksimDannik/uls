@@ -1,7 +1,26 @@
 #include "uls.h"
 
-static int check_file(t_lit ***args) { // whith *
+static void add_in_new_array(t_lit **args, t_lit **new_args) {
+    int count_new_arg = 0;
+    t_lit **tmp = (t_lit **)malloc(sizeof(t_lit *));
+    tmp = args;
 
+    for (int i = 0; args[i] != NULL; i++) {
+        if (args[i]->what_is_it == 1) {
+            new_args[count_new_arg] = (t_lit *)malloc(sizeof(t_lit));
+            new_args[count_new_arg]->name = mx_strdup(tmp[i]->name);
+            new_args[count_new_arg]->fullpath = mx_strdup(tmp[i]->fullpath);
+            count_new_arg++;
+            mx_printstr(tmp[i]->name);
+            mx_printstr("\n");
+        }
+    }
+     new_args[count_new_arg] = NULL;
+     mx_del_list(tmp);
+     free(tmp);
+}
+
+static int check_file(t_lit ***args) { // whith *
     int sum_file = 0;
     t_lit **arg = *args;
     struct stat *buf = NULL;
@@ -15,7 +34,7 @@ static int check_file(t_lit ***args) { // whith *
             else if (lstat(arg[i]->name, buf)) { // check File or no 
                 arg[i]->what_is_it = 1;
                 sum_file++;
-                //mx_printstr("FILE \n"); delate
+                // mx_printstr("FILE \n"); //delate
             }
         }
         dir ? closedir(dir) : 0;
@@ -26,15 +45,20 @@ static int check_file(t_lit ***args) { // whith *
 }
 
 void mx_indification_args(t_lit **args, t_head *head) {
-    // if (head->count_flags == 1) {
+    // if (head->count_flags == 1) {    --------------------> after variable (переменная)
     //     //print_multi_colon // Bodya create this function
     //     return;
     // }
-    int sum_file = check_file(&args);
-system("leaks uls");////////// // ИСКАЛ ЛИКИ, НАШЕЛ
+    head->sum_file = check_file(&args);
+    t_lit **new_ar = (t_lit **)malloc((head->sum_file + 1) * sizeof(t_lit *)); // i need free new_ar[full] == NULL/
+    add_in_new_array(args, new_ar);//
 
 
-if (head || sum_file) {
+
+// system("leaks uls");//
+
+
+if (head || head->sum_file) {
 
 }
 // struct stat *buf = NULL;
