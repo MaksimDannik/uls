@@ -7,7 +7,7 @@ t_lit *mx_createnode(char *name) {
     node->fullpath = mx_strdup(name);
     if (lstat(name, &(node->t_st)) == -1)
         node->error = mx_strdup(strerror(errno));
-    else 
+    else
         node->error = NULL;
     node->open = NULL;
     return node;

@@ -21,6 +21,7 @@ t_lit **mx_make_new_list(t_lit **args, int valid_node) {
             newstruct[count_new_lst] = (t_lit *)malloc(sizeof(t_lit));
             newstruct[count_new_lst]->name = mx_strdup(args[i]->name);
             newstruct[count_new_lst]->fullpath = mx_strdup(args[i]->fullpath);
+            newstruct[count_new_lst]->t_st = args[i]->t_st;
             count_new_lst++;
         }
     }
