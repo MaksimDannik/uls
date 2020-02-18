@@ -9,7 +9,7 @@ int main(int argc, char *argv[]) {
     head.count_flags = head.count_flags + mx_check_flags(argc, argv, &head); //заполнили масив флагов(0001001), и подсчитали где заканчиваются флаги 
 
     mx_parse(argc, argv, &head);
-    
+
 // system("leaks uls");
 return 0;
 }

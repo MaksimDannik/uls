@@ -51,6 +51,7 @@ int mx_check_dir(t_lit ***args);
 int mx_check_file(t_lit ***args);
 t_lit **mx_createlist(char **name, int count); // after open dir we have array ---> new_list ----> and working with him
 void mx_opendir(t_lit **new_d, t_head *head);
+void mx_join(char **res, char *s2);
 
 #endif
 

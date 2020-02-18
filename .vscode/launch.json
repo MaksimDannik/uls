@@ -5,16 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "clang build and debug active file",
+            "name": "(lldb) Запустить",
             "type": "cppdbg",
             "request": "launch",
             "program": "/Users/mdannyk/Desktop/new.uls/uls",
-            "args": [],
+            "args": ["inc", "src"],
             "stopAtEntry": true,
-            "cwd": "/Users/mdannyk/Desktop/new.uls",
+            "cwd": "${workspaceFolder}",
             "environment": [],
-            "externalConsole": false,
-            "MIMode": "lldb",
+            "externalConsole": true,
+            "MIMode": "lldb"
         }
+
     ]
 }
