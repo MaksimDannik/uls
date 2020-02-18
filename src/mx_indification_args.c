@@ -1,6 +1,6 @@
 #include "uls.h"
 
-static void add_in_new_dir_array(t_lit **args, t_lit **new_d) {
+static void add_new_dir_array(t_lit **args, t_lit **new_d) {
     int count_new_arg = 0;
 
     new_d[count_new_arg] = NULL;
@@ -15,7 +15,7 @@ static void add_in_new_dir_array(t_lit **args, t_lit **new_d) {
     new_d[count_new_arg] = NULL;
 }
 
-static void add_in_new_file_array(t_lit **args, t_lit **new_f) {
+static void add_new_file_array(t_lit **args, t_lit **new_f) {
     int count_new_arg = 0;
 
     new_f[count_new_arg] = NULL;
@@ -30,7 +30,7 @@ static void add_in_new_file_array(t_lit **args, t_lit **new_f) {
     new_f[count_new_arg] = NULL;
 }
 
-static int check_file(t_lit ***args) {
+int mx_check_file(t_lit ***args) {
     int sum_file = 0;
     t_lit **arg = *args;
 
@@ -42,7 +42,7 @@ static int check_file(t_lit ***args) {
     return sum_file;
 }
 
-static int check_dir(t_lit ***args) {
+int mx_check_dir(t_lit ***args) {
     int sum_dir = 0;
     t_lit **arg = *args;
 
@@ -55,16 +55,25 @@ static int check_dir(t_lit ***args) {
 }
 
 void mx_indification_args(t_lit **args, t_head *head) {
-    // if (head->count_flags == 1) {    --------------------> after variable (переменная)
+    t_lit **new_f = NULL;
+    t_lit **new_d = NULL;
+    head->sum_dir = mx_check_dir(&args);
+    head->sum_file = mx_check_file(&args);
+
+    if (head->sum_file) {
+        new_f = (t_lit **)malloc((head->sum_file + 1) * sizeof(t_lit *));
+        add_new_file_array(args, new_f);// we need see whats flag we have ----> use this flag ----> print
+    }
+    if (head->sum_dir) {
+        new_d = (t_lit **)malloc((head->sum_dir + 1) * sizeof(t_lit *)); // i need free new_ar[full] == NULL/
+        add_new_dir_array(args, new_d);
+    }
+
+    // if (we have 1 argument --> uls && new_f) {
     //     //print_multi_colon // Bodya create this function
     //     return;
     // }
-    head->sum_dir = check_dir(&args);
-    head->sum_file = check_file(&args);
-    t_lit **new_f = (t_lit **)malloc((head->sum_file + 1) * sizeof(t_lit *));
-    t_lit **new_d = (t_lit **)malloc((head->sum_dir + 1) * sizeof(t_lit *)); // i need free new_ar[full] == NULL/
-    add_in_new_file_array(args, new_f);// we need see whats flag we have ----> use this flag ----> print
-    add_in_new_dir_array(args, new_d);
+   mx_opendir(new_d, head);//in processing
 
 
 
@@ -72,10 +81,10 @@ void mx_indification_args(t_lit **args, t_head *head) {
 //         mx_printstr(new_f[i]->name);
 //         mx_printstr("FILE \n");
 //     }
-//     for (int i = 0; new_d[i] != NULL; i++) {
-//         mx_printstr(new_d[i]->name);
-//         mx_printstr("DIR \n");
-//     }
+    // for (int i = 0; new_d[i] != NULL; i++) {
+    //     mx_printstr(new_d[i]->name);
+    //     mx_printstr("DIR \n");
+    // }
 
 // for (int i = 0; args[i] != 0; i++) {
 //     mx_printstr(args[i]->name);
@@ -83,7 +92,7 @@ void mx_indification_args(t_lit **args, t_head *head) {
 
 // }
 
-mx_printint(head->count_flags);
+// mx_printint(head->count_flags);
 if (head || head->sum_file) {
 
 }

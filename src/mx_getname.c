@@ -13,7 +13,7 @@ t_lit *mx_createnode(char *name) {
     return node;
 }
 
-static t_lit **createlist(char **name, int count) {
+t_lit **mx_createlist(char **name, int count) {
     t_lit **tmp = malloc(count * sizeof(t_lit *));
     int i = 0;
 
@@ -49,7 +49,7 @@ static char **nam(int argc, char **argv, int i, int *count) {
 t_lit **mx_getname(int argc, char **argv, int i) {
     int count = 0;
     char **name = nam(argc, argv, i, &count);
-    t_lit **args = createlist(name, count);
+    t_lit **args = mx_createlist(name, count);
 
     mx_del_strarr(&name);
     return args;
