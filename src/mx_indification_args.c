@@ -73,6 +73,7 @@ void mx_indification_args(t_lit **args, t_head *head) {
     //     //print_multi_colon // Bodya create this function
     //     return;
     // }
+    // if (args[1]->t_st.st_ino != 0) mx_printstr("!!!!!!!!!!!!!!!!!\n");
    mx_opendir(new_d, head);//in processing
 
 

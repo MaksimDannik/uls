@@ -13,7 +13,6 @@ static int check_valid_nd(t_lit **args) {
 static t_lit** arg(t_lit **args) {
     int valid_node = check_valid_nd(args);
     t_lit **new_args = mx_make_new_list(args, valid_node);     //(t_lit **)malloc((valid_node + 1) * sizeof(t_lit *));
-    
     return new_args;
 }
 
@@ -36,6 +35,7 @@ void mx_parse(int argc, char **argv, t_head *head) {
     mx_sort_asci(&args); // sort argument of ASCI
     print_err(args); // print error
     args = arg(args); // array without errors
+
     mx_indification_args(args, head);// indification argc (exemple: file and dir)
 
 //  system("leaks uls");
