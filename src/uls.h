@@ -3,7 +3,7 @@
 
 #include <string.h>
 #include <errno.h>
-#include "libmx/inc/libmx.h"
+#include "libmx.h"
 #include "sys/stat.h"
 #include <sys/types.h>//opendir
 #include <dirent.h> // opendir readdir
