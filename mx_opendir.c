@@ -61,7 +61,6 @@ void mx_opendir(t_lit **new_d, t_head *head) {
                 }
             }
         }
-        }
         // int x = 0;
             int r = 0;
             // if (new_d[x]){
@@ -87,7 +86,7 @@ void mx_opendir(t_lit **new_d, t_head *head) {
             //         }
             //     }
             // }
-                
+                }
 if (head) {
 
 }
