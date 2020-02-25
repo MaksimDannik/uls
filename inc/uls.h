@@ -37,7 +37,18 @@ typedef struct s_lit {
     int count_flags;
     int sum_dir;
     int sum_file; // for print!! have or not file//
+    int output;
+    int ex; // when you have error (ex: permission and ect)  you need exit your program with number errors. example: exit(ex)
  } t_head;
+
+
+typedef struct s_sz {
+    int lnk;
+    int sz;
+    int group;
+    int usr;
+    bool is_dev;
+} t_sz;
 
 
 int mx_check_flags(int argc, char *argv[], t_head *head);
@@ -57,6 +68,9 @@ void mx_add_new_file_array(t_lit **args, t_lit **new_f);
 t_lit** mx_arg(t_lit **args);
 void mx_del_fils(t_lit ***args, t_head *head);
 void mx_del_litarr(t_lit ***args, t_lit **dir);
+
+ void mx_output(t_lit **new_d, t_head *head);
+void mx_del(t_lit ***args);
 
 #endif
 

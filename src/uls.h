@@ -58,6 +58,7 @@ t_lit** mx_arg(t_lit **args);
 void mx_del_fils(t_lit ***args, t_head *head);
 void mx_del_litarr(t_lit ***args, t_lit **dir);
 
+void mx_del(t_lit ***args);
 #endif
 
 

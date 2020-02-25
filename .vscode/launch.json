@@ -11,9 +11,9 @@
             "program": "/Users/mdannyk/Desktop/new.uls/uls",
             "args": ["inc", "src"],
             "stopAtEntry": true,
-            "cwd": "${workspaceFolder}",
+            "cwd": "/Users/mdannyk/Desktop/new.uls",
             "environment": [],
-            "externalConsole": true,
+            "externalConsole": false,
             "MIMode": "lldb"
         }
 
