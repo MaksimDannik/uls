@@ -3,11 +3,16 @@
 
 #include <string.h>
 #include <errno.h>
-#include "libmx/inc/libmx.h"
+#include "libmx.h"
 #include "sys/stat.h"
 #include <sys/types.h>//opendir
 #include <dirent.h> // opendir readdir
 #include <limits.h> // limits PATH_MAX
+#include <pwd.h>
+#include <grp.h>
+#include <sys/acl.h>
+#include <sys/types.h>
+ #include <sys/xattr.h>
 
 #define MX_IS_BLK(mode) (((mode) & S_IFMT) == S_IFBLK)
 #define MX_IS_CHR(mode) (((mode) & S_IFMT) == S_IFCHR)
@@ -18,7 +23,7 @@
 #define MX_IS_WHT(mode) (((mode) & S_IFMT) == S_IFWHT)
 #define MX_IS_REG(mode) (((mode) & S_IFMT) == S_IFREG)
 
-#define MY_FLAGS "LARarls" //our flags
+#define MY_FLAGS "LARarlstucSClm1T" //our flags
 
 //typedef struct stat t_st;
 struct stat *buf;
@@ -69,8 +74,21 @@ t_lit** mx_arg(t_lit **args);
 void mx_del_fils(t_lit ***args, t_head *head);
 void mx_del_litarr(t_lit ***args, t_lit **dir);
 
- void mx_output(t_lit **new_d, t_head *head);
+void mx_output(t_lit **new_d, t_head *head);
 void mx_del(t_lit ***args);
+void mx_out_menu(t_lit ***name, t_head *head, int i);
+void mx_long_out(t_lit **name, t_head *head, int fg);
+bool mx_check_dev(t_lit **name, t_sz *size);
+void mx_print(t_lit *name, t_sz *size, t_head *head);
+void mx_print_lnk(t_lit *name, t_sz *size);
+void mx_print_per(t_lit *name);
+void mx_get_user_name(t_lit *name, int usr);
+char mx_check_perm(t_lit *name);
+void mx_get_group_name(t_lit *name, int group);
+char *mx_get_minor(t_lit *name);
+char *mx_get_major(t_lit *name);
+void mx_print_sz(t_lit *name, t_sz *size);
+void mx_edit_time(t_lit *name, char *t, t_head *head);
 
 #endif
 

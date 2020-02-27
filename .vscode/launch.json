@@ -9,11 +9,11 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "/Users/mdannyk/Desktop/new.uls/uls",
-            "args": ["inc", "src"],
+            "args": ["-l", "inc", "src"],
             "stopAtEntry": true,
             "cwd": "/Users/mdannyk/Desktop/new.uls",
             "environment": [],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "lldb"
         }
 
