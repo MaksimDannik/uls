@@ -1,5 +1,17 @@
 #include "uls.h"
 
+static void print_link_and_color(t_lit *name, t_head *head) {
+    if (head->flags[mx_get_char_index(MY_FLAGS, 'G')] == 1)
+        mx_printstr_g(name);
+    else if (MX_IS_LNK(name->t_st.st_mode)) {
+        mx_printstr(name->name);
+        mx_print_symb(name);
+    }
+    else
+        mx_printstr(name->name);
+}
+
+
 void mx_print(t_lit *name, t_sz *size, t_head *head) {
     time_t *chtime = &name->t_st.st_ctime;
     time_t *atime = &name->t_st.st_atime;
@@ -23,6 +35,6 @@ void mx_print(t_lit *name, t_sz *size, t_head *head) {
     if (head->flags[mx_get_char_index(MY_FLAGS, 'c')] == 1)
         t = chtime;
     mx_edit_time(name, ctime(t), head);
-     // print link_and_color
+    print_link_and_color(name, head);
     mx_printchar('\n');
 }

@@ -79,7 +79,7 @@ void mx_indification_args(t_lit **args, t_head *head) {
     //     return;
     // }
     if (new_d)
-        mx_opendir(new_d, head);//in processing
+       mx_opendir(new_d, head);//in processing
     mx_del(&args);
 
 

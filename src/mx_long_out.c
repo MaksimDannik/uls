@@ -57,7 +57,7 @@ void mx_long_out(t_lit **name, t_head *head, int fg) {
         count_size(size, name[i]);
     }
     if (fg == 1) {
-        mx_printstr("total");
+        mx_printstr("total ");
         mx_printint(blk_size);
         mx_printchar('\n');
     }

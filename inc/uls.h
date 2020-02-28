@@ -22,8 +22,11 @@
 #define MX_IS_FIFO(mode) (((mode) & S_IFMT) == S_IFIFO)
 #define MX_IS_WHT(mode) (((mode) & S_IFMT) == S_IFWHT)
 #define MX_IS_REG(mode) (((mode) & S_IFMT) == S_IFREG)
+#define MX_IS_EXEC(mode) ((mode) & S_IXUSR)
 
 #define MY_FLAGS "LARarlstucSClm1T" //our flags
+#define LS_COLOR_RED        "\x1b[31m"
+#define LS_COLOR_RESET      "\x1b[0m"
 
 //typedef struct stat t_st;
 struct stat *buf;
@@ -89,6 +92,8 @@ char *mx_get_minor(t_lit *name);
 char *mx_get_major(t_lit *name);
 void mx_print_sz(t_lit *name, t_sz *size);
 void mx_edit_time(t_lit *name, char *t, t_head *head);
+void mx_print_symb(t_lit *name);
+void mx_printstr_g(t_lit *args);
 
 #endif
 

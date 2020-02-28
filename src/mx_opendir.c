@@ -8,7 +8,8 @@ void mx_del(t_lit ***args) {
         mx_strdel(&kill_arr[i]->fullpath);
         if (kill_arr[i]->error != NULL)
             mx_strdel(&kill_arr[i]->error);
-            free(kill_arr[i]);
+            if (kill_arr[i])
+                free(kill_arr[i]);
             kill_arr[i] = NULL;
         }
         free(*args);
